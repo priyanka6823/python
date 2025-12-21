@@ -368,8 +368,17 @@ Methods:
 * update()
 
 ## Functions
+ Functions
+A function is a reusable block of code that performs a specific task.
 
-Functions are blocks of reusable code.
+Advantages:
+- Avoids repetition
+- Improves readability
+- Easy to maintain
+
+Example:
+def add(a, b):
+    return a + b
 
 ### User-defined Function
 
@@ -386,48 +395,123 @@ print(add(10, 20))
 * Keyword
 * Default
 * Variable-length (`*args`, `**kwargs`)
+## Modularization
+
+Modularization means dividing a large program into smaller files called modules.
+
+Benefits:
+- Better code organization
+- Easy debugging
+- Code reuse
+Example:
+# module.py
+def greet():
+    print("Hello")
+
+# main.py
+import module
+module.greet()
 
 ### Lambda Function
 
 ```python
 square = lambda x: x * x
-print(square(5))
-```
-# Compression in Python
-🔹 What is Compression?
+print(squauare(5)
 
-Compressionis the process of reducing the size of data so it takes less storage space and can be transferred faster. In Python, compression is often used along with **serialization**, where data structures are converted into a format that can be saved to a file or sent over a network.
+## map()
 
-🔹 Lists in Compression
-
-A list is an ordered collection of elements.
+map() applies a function to each element of an iterable.
 
 Example:
+nums = [1, 2, 3]
+result = list(map(lambda x: x * 2, nums))
 
-```python
-my_list = [10, 20, 30, 40]
-```
+## filter()
 
-Before compression, lists must be **serialized** (converted into a byte or string format). Serialization makes lists ready for compression and storage.
-
- 🔹 Dictionaries in Compression
-
-A **dictionary** stores data in **key–value pairs**.
+filter() selects elements that satisfy a condition.
 
 Example:
+nums = [1, 2, 3, 4]
+result = list(filter(lambda x: x % 2 == 0, nums))
 
-```python
-my_dict = {"name": "Priyanka", "age": 21}
+## reduce()
+
+reduce() reduces an iterable to a single value.
+It is available in functools module.
+
+Example:
+from functools import reduce
+nums = [1, 2, 3, 4]
+result = reduce(lambda a, b: a + b, nums)
+
+## map with filter
+
+First filters elements, then applies map.
+
+Example:
+nums = [1, 2, 3, 4]
+result = list(map(lambda x: x * x, filter(lambda x: x % 2 == 0, nums)))
+
+## filter with map
+
+First applies map, then filters the result.
+
+Example:
+nums = [1, 2, 3, 4]
+result = list(filter(lambda x: x > 5, map(lambda x: x * 2, nums)))
+
+## reduce with map
+
+First applies map, then reduces the result.
+
+Example:
+from functools import reduce
+nums = [1, 2, 3]
+result = reduce(lambda a, b: a + b, map(lambda x: x * 2, nums))
+
+## File Handling
+
+File handling is used to store and retrieve data from files.
+
+Syntax:
+file = open("data.txt", "r")
+content = file.read()
+file.close()
+
+## File Modes
+
+r  → read  
+w  → write  
+a  → append  
+x  → create  
+rb → read binary  
+wb → write binary  
+
+## File Handling Rules
+
+- Always close the file
+- Use correct file mode
+- Prefer using with statement
+
+Example:
+with open("data.txt", "w") as file:
+    file.write("Hello")
 
 
-Like lists, dictionaries cannot be compressed directly. They are first serialized and then compressed.
+## dump(), dumps(), load(), loads()
 
+Used for serialization (saving and loading Python objects).
 
-🔹 Serialization Functions (dump, dumps, load, loads)
+dump()   → writes object to file  
+load()   → reads object from file  
+dumps()  → converts object to byte string  
+loads()  → converts byte string to object  
 
-Python provides these functions (commonly from `pickle` or `json`) to serialize and deserialize data.
-
-# dump()
+Example:
+import pickle
+pickle.dump(data, file)
+data = pickle.load(file)
+#dump()
 
 * Writes serialized data **directly to a file**
 * Used when storing data permanently
@@ -438,8 +522,7 @@ Example:
 import pickle
 with open("data.pkl", "wb") as f:
     pickle.dump(my_list, f)
-
-# dumps()
+dumps()
 
 * Converts data into a **bytes object**
 * Does not write to a file
@@ -456,7 +539,6 @@ serialized_data = pickle.dumps(my_dict)
 
 Example:
 
-```python
 with open("data.pkl", "rb") as f:
     data = pickle.load(f)
 
@@ -465,29 +547,59 @@ with open("data.pkl", "rb") as f:
 * Converts serialized **bytes data** back to original data
 
 Example:
-
-```python
+``python
 data = pickle.loads(serialized_data)
 
-🔹 Why Use dump & load in Compression?
+## Compression
+ompressionis the process of reducing the size of data so it takes less storage space and can be transferred faster. In Python, compression is often used along with serialization, where data structures are converted into a format that can be saved to a file or sent over a network.
 
-* Helps store compressed data efficiently
-* Makes data transferable between programs
-* Useful in file storage, networking, and data science
+🔹 Lists in Compression
 
-## Summary
+Compression reduces file size and saves storage.
 
-| Function | Purpose                       |
-| -------- | ----------------------------- |
-| dump()   | Write serialized data to file |
-| dumps()  | Convert data to bytes         |
-| load()   | Read data from file           |
-| loads()  | Convert bytes back to data    |
+Common modules:
+- gzip
+- zipfile
+- zlib
+
+Example:
+import gzip
+
+
+## List Comprehension
+
+A concise way to create lists.
+
+Example:
+squares = [x * x for x in range(5)]
+
+With condition:
+evens = [x for x in range(10) if x % 2 == 0]
+
+## Dictionary Comprehension
+A concise way to create dictionaries.
+
+Example:
+squares = {x: x * x for x in range(5)}
+
+With condition:
+even_squares = {x: x * x for x in range(10) if x % 2 == 0}
+
+##Summary
+
+- Functions improve reusability
+- Modularization improves structure
+- map, filter, reduce simplify data processing
+- File handling manages data storage
+- dump and load store Python objects
+- Compression reduces file size
+- Comprehensions make code short and readable
 
 ##  Contact
 kottamula priyanka
 email:priyankakottamula@gmail.com
 phno:6303145006
+
 
 
 
