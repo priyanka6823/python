@@ -393,12 +393,105 @@ print(add(10, 20))
 square = lambda x: x * x
 print(square(5))
 ```
+# Compression in Python
+🔹 What is Compression?
 
----
+Compressionis the process of reducing the size of data so it takes less storage space and can be transferred faster. In Python, compression is often used along with **serialization**, where data structures are converted into a format that can be saved to a file or sent over a network.
+
+🔹 Lists in Compression
+
+A list is an ordered collection of elements.
+
+Example:
+
+```python
+my_list = [10, 20, 30, 40]
+```
+
+Before compression, lists must be **serialized** (converted into a byte or string format). Serialization makes lists ready for compression and storage.
+
+ 🔹 Dictionaries in Compression
+
+A **dictionary** stores data in **key–value pairs**.
+
+Example:
+
+```python
+my_dict = {"name": "Priyanka", "age": 21}
+
+
+Like lists, dictionaries cannot be compressed directly. They are first serialized and then compressed.
+
+
+🔹 Serialization Functions (dump, dumps, load, loads)
+
+Python provides these functions (commonly from `pickle` or `json`) to serialize and deserialize data.
+
+# dump()
+
+* Writes serialized data **directly to a file**
+* Used when storing data permanently
+
+Example:
+
+```python
+import pickle
+with open("data.pkl", "wb") as f:
+    pickle.dump(my_list, f)
+
+# dumps()
+
+* Converts data into a **bytes object**
+* Does not write to a file
+
+Example:
+
+```python
+serialized_data = pickle.dumps(my_dict)
+
+# load()
+
+* Reads serialized data **from a file**
+* Converts it back to original form
+
+Example:
+
+```python
+with open("data.pkl", "rb") as f:
+    data = pickle.load(f)
+
+#loads()
+
+* Converts serialized **bytes data** back to original data
+
+Example:
+
+```python
+data = pickle.loads(serialized_data)
+
+🔹 Why Use dump & load in Compression?
+
+* Helps store compressed data efficiently
+* Makes data transferable between programs
+* Useful in file storage, networking, and data science
+
+## Summary
+
+| Function | Purpose                       |
+| -------- | ----------------------------- |
+| dump()   | Write serialized data to file |
+| dumps()  | Convert data to bytes         |
+| load()   | Read data from file           |
+| loads()  | Convert bytes back to data    |
 
 ##  Contact
 kottamula priyanka
 email:priyankakottamula@gmail.com
 phno:6303145006
+
+
+
+
+
 
 
