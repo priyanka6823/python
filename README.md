@@ -594,6 +594,160 @@ even_squares = {x: x * x for x in range(10) if x % 2 == 0}
 - dump and load store Python objects
 - Compression reduces file size
 - Comprehensions make code short and readable
+# Exception Handling in Python
+# What is Exception Handling?
+Exception Handling is a mechanism to handle runtime errors so that the program does not crash suddenly.
+
+Examples of runtime errors:
+
+Division by zero
+
+File not found
+
+Invalid input
+
+Index out of range
+
+Python provides built-in keywords to handle such errors gracefully.
+
+# Why Exception Handling is Important?
+Prevents program crashes
+
+Handles unexpected user input
+
+Improves program reliability
+
+Makes debugging easier
+
+🔹 Keywords Used in Exception Handling
+try
+
+except
+
+else
+
+finally
+
+🔹 try and except
+🔹 Syntax
+try:
+    # code that may cause an error
+except:
+    # code that runs if an error occurs
+🔹 Example
+try:
+    a = int(input("Enter a number: "))
+    b = int(input("Enter another number: "))
+    print(a / b)
+except:
+    print("An error occurred")
+🔹 Handling Specific Exceptions
+try:
+    x = int("abc")
+except ValueError:
+    print("ValueError occurred")
+🔹 Multiple except Blocks
+try:
+    a = int(input())
+    b = int(input())
+    print(a / b)
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+except ValueError:
+    print("Invalid input")
+# else Block
+The else block executes only when no exception occurs.
+
+try:
+    a = 10
+    b = 2
+    print(a / b)
+except ZeroDivisionError:
+    print("Error")
+else:
+    print("Division successful")
+# finally Block
+The finally block always executes, whether an exception occurs or not.
+
+try:
+    f = open("data.txt", "r")
+    print(f.read())
+except FileNotFoundError:
+    print("File not found")
+finally:
+    print("Execution completed")
+* Object-Oriented Programming (OOPS)
+# What is OOPS?
+OOPS (Object-Oriented Programming System) is a programming approach that uses objects and classes to design applications.
+It helps to represent real-world entities in programming.
+
+🔹 Key Concepts of OOPS
+Class
+
+Object
+
+Method
+
+Constructor
+
+Encapsulation
+
+Inheritance
+
+Polymorphism
+
+Abstraction
+
+🔹 What is a Class?
+A class is a blueprint or template used to create objects.
+
+class Student:
+    pass
+🔹 What is an Object?
+An object is an instance of a class.
+
+s1 = Student()
+🔹 Class Variables
+class Student:
+    name = "Priyanka"
+    roll_no = 101
+🔹 Accessing Class Variables Using Object
+s1 = Student()
+print(s1.name)
+print(s1.roll_no)
+# Constructor (__init__ Method)
+A constructor initializes the object data when an object is created.
+
+class Student:
+    def __init__(self, name, roll):
+        self.name = name
+        self.roll = roll
+
+s1 = Student("Priyanka", 101)
+print(s1.name, s1.roll)
+# Methods (Functions Inside a Class)
+Functions defined inside a class are called methods.
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def display(self):
+        print("Student Name:", self.name)
+
+s1 = Student("Priyanka")
+s1.display()
+🔹 Using Object to Call Methods
+class Calculator:
+    def add(self, a, b):
+        return a + b
+
+# Conclusion
+Exception Handling ensures programs run safely even when errors occur
+
+OOPS makes programs modular, reusable, and easy to understan
+
+
 
 ##  Contact
 kottamula priyanka
