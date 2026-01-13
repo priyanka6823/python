@@ -680,72 +680,202 @@ finally:
 # What is OOPS?
 OOPS (Object-Oriented Programming System) is a programming approach that uses objects and classes to design applications.
 It helps to represent real-world entities in programming.
+or
+Object Oriented Programming (OOPS)
+Object-Oriented Programming (OOPS) is a programming paradigm that organizes software design around objects rather than functions.
+It improves code reusability, security, scalability, and maintainability.
 
-🔹 Key Concepts of OOPS
+# Table of Contents
 Class
 
 Object
 
-Method
-
 Constructor
-
-Encapsulation
 
 Inheritance
 
-Polymorphism
+Types of Inheritance
+
+Single Inheritance
+
+Multiple Inheritance
+
+Multilevel Inheritance
+
+Hierarchical Inheritance
+
+Hybrid Inheritance
 
 Abstraction
 
-🔹 What is a Class?
+Encapsulation
+
+ Class
 A class is a blueprint or template used to create objects.
+It defines properties (variables) and behaviors (methods).
 
+Example (Python)
 class Student:
-    pass
-🔹 What is an Object?
+    def study(self):
+        print("Student is studying")
+ Object
 An object is an instance of a class.
+It represents a real-world entity and can access class members.
 
+Example
 s1 = Student()
-🔹 Class Variables
-class Student:
-    name = "Priyanka"
-    roll_no = 101
-🔹 Accessing Class Variables Using Object
-s1 = Student()
-print(s1.name)
-print(s1.roll_no)
-# Constructor (__init__ Method)
-A constructor initializes the object data when an object is created.
+s1.study()
+# Constructor
+A constructor is a special method that is automatically executed when an object is created.
+In Python, it is defined using __init__().
 
-class Student:
-    def __init__(self, name, roll):
-        self.name = name
-        self.roll = roll
-
-s1 = Student("Priyanka", 101)
-print(s1.name, s1.roll)
-# Methods (Functions Inside a Class)
-Functions defined inside a class are called methods.
-
+Example
 class Student:
     def __init__(self, name):
         self.name = name
 
     def display(self):
-        print("Student Name:", self.name)
+        print("Name:", self.name)
 
 s1 = Student("Priyanka")
 s1.display()
-🔹 Using Object to Call Methods
-class Calculator:
-    def add(self, a, b):
-        return a + b
+#Inheritance
+Inheritance allows a class to acquire properties and methods of another class.
+It helps in code reuse and establishes a parent–child relationship.
 
-# Conclusion
-Exception Handling ensures programs run safely even when errors occur
+* Single Inheritance
+One child class inherits from one parent class.
 
-OOPS makes programs modular, reusable, and easy to understan
+class Parent:
+    def show(self):
+        print("Parent class")
+
+class Child(Parent):
+    pass
+
+c = Child()
+c.show()
+🔹 Multiple Inheritance
+A child class inherits from more than one parent class.
+
+class Father:
+    def skill1(self):
+        print("Driving")
+
+class Mother:
+    def skill2(self):
+        print("Cooking")
+
+class Child(Father, Mother):
+    pass
+
+c = Child()
+c.skill1()
+c.skill2()
+🔹 Multilevel Inheritance
+A class is derived from another derived class.
+
+class Grandparent:
+    def gp(self):
+        print("Grandparent")
+
+class Parent(Grandparent):
+    def p(self):
+        print("Parent")
+
+class Child(Parent):
+    def c(self):
+        print("Child")
+
+obj = Child()
+obj.gp()
+obj.p()
+obj.c()
+🔹 Hierarchical Inheritance
+Multiple child classes inherit from a single parent class.
+
+class Parent:
+    def show(self):
+        print("Parent class")
+
+class Child1(Parent):
+    pass
+
+class Child2(Parent):
+    pass
+
+c1 = Child1()
+c2 = Child2()
+c1.show()
+c2.show()
+🔹 Hybrid Inheritance
+Hybrid inheritance is a combination of two or more inheritance types.
+
+class A:
+    def showA(self):
+        print("Class A")
+
+class B(A):
+    def showB(self):
+        print("Class B")
+
+class C(A):
+    def showC(self):
+        print("Class C")
+
+class D(B, C):
+    pass
+
+d = D()
+d.showA()
+d.showB()
+d.showC()
+# Abstraction
+Abstraction means hiding implementation details and showing only essential features.
+It is achieved using abstract classes.
+
+Example
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+
+class Bike(Vehicle):
+    def start(self):
+        print("Bike started")
+
+b = Bike()
+b.start()
+# Encapsulation
+Encapsulation is wrapping data and methods into a single unit (class).
+It protects data using private variables.
+
+Example
+class Account:
+    def __init__(self):
+        self.__balance = 1000  # private variable
+
+    def get_balance(self):
+        return self.__balance
+
+acc = Account()
+print(acc.get_balance())
+# Advantages of OOPS
+Code Reusability
+
+Data Security
+
+Easy Maintenance
+
+Real-World Representation
+
+Better Modularity
+
+#Conclusion
+OOPS helps developers build structured, scalable, and secure applications.
+Understanding class, object, inheritance, abstraction, and encapsulation is essential for software development and interviews.
 
 
 
