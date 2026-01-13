@@ -877,6 +877,288 @@ Better Modularity
 OOPS helps developers build structured, scalable, and secure applications.
 Understanding class, object, inheritance, abstraction, and encapsulation is essential for software development and interviews.
 
+🧵 Multithreading
+Multithreading allows a program to run multiple threads concurrently within a single process.
+
+Key Points
+Threads share the same memory space
+
+Best for I/O-bound tasks (file handling, network calls)
+
+Uses threading module
+
+Example
+from threading import Thread
+
+def task():
+    print("Thread is running")
+
+t = Thread(target=task)
+t.start()
+⚙️ Multiprocessing
+Multiprocessing allows a program to run multiple processes, each with its own memory.
+
+Key Points
+Uses multiple CPU cores
+
+Best for CPU-bound tasks
+
+Uses multiprocessing module
+
+Example
+from multiprocessing import Process
+
+def task():
+    print("Process is running")
+
+p = Process(target=task)
+p.start()
+🔢 NumPy (Numerical Python)
+NumPy is a powerful library for numerical computing and array operations.
+
+Creating Arrays
+import numpy as np
+
+a = np.array([1, 2, 3])
+Important NumPy Functions
+Function	Description
+array()	Create array
+arange()	Create range of values
+ndim	Number of dimensions
+shape	Rows & columns
+size	Total elements
+reshape()	Change shape
+zeros()	Array of zeros
+ones()	Array of ones
+eye()	Identity matrix
+diag()	Diagonal elements
+ravel()	Convert to 1D
+transpose()	Swap rows & columns
+concatenate()	Join arrays
+full()	Constant-filled array
+Reshape Examples
+a = np.array([1,2,3,4])
+
+print(a.reshape(1, -1))  # Row vector
+print(a.reshape(-1, 1))  # Column vector
+Random Functions
+np.random.rand(2,2)
+np.random.randn(2,2)
+np.random.randint(1, 10, size=5)
+Mathematical Functions
+np.max(a)
+np.min(a)
+np.sum(a)
+np.argmax(a)
+np.argmin(a)
+np.repeat(a, 2)
+Axis Explanation
+axis=0 → column-wise
+
+axis=1 → row-wise
+
+np.sum(a, axis=0)
+np.sum(a, axis=1)
+Matrix Operations
+np.add(a, b)
+np.matmul(a, b)
+🐼 Pandas
+Pandas is used for data analysis and manipulation.
+
+Core Structures
+Series → 1D data
+
+DataFrame → 2D table
+
+Creating DataFrame
+import pandas as pd
+
+df = pd.DataFrame({
+    "Name": ["A", "B"],
+    "Marks": [80, 90]
+})
+Pandas Built-in Functions
+Function	Purpose
+shape	Rows & columns
+head()	First 5 rows
+tail()	Last 5 rows
+info()	Dataset summary
+unique()	Unique values
+value_counts()	Frequency
+isnull().sum()	Missing values
+select_dtypes()	Select datatype
+groupby()	Group data
+fillna()	Fill missing values
+drop()	Remove rows/columns
+rename()	Rename columns
+index	Index access
+loc & iloc
+df.loc[0, 'Name']
+df.iloc[0, 1]
+Axis Usage
+axis=0 → rows
+
+axis=1 → columns
+
+df.drop("Marks", axis=1)
+CSV Operations
+df.to_csv("data.csv", index=False)
+pd.read_csv("data.csv")
+📊 Matplotlib (Visualization)
+Matplotlib is used to visualize data graphically.
+
+Line Chart
+import matplotlib.pyplot as plt
+
+plt.plot([1,2,3], [4,5,6])
+plt.show()
+Scatter Plot
+plt.scatter([1,2,3], [4,5,6])
+plt.show()
+Bar Chart
+plt.bar(["A","B","C"], [10,20,30])
+plt.show()
+Histogram
+plt.hist([1,2,2,3,3,3])
+plt.show()
+Pie Chart
+plt.pie([30,40,30], labels=["A","B","C"], autopct="%1.1f%%")
+plt.show()
+Subplot
+plt.subplot(1,2,1)
+plt.plot([1,2,3])
+
+plt.subplot(1,2,2)
+plt.bar([1,2,3],[3,2,1])
+plt.show()
+
+
+
+📊 Matplotlib Visualizations (Code + Output)
+1️⃣ Line Chart
+✅ Code
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [10, 20, 15, 30]
+
+plt.plot(x, y)
+plt.xlabel("X Axis")
+plt.ylabel("Y Axis")
+plt.title("Line Chart Example")
+plt.show()
+📈 Output
+
+https://www.w3schools.com/python/img_matplotlib_line_red.png
+
+https://media.geeksforgeeks.org/wp-content/uploads/20201013170331/simpleplot-300x169.png
+Used for: Trend over time
+
+2️⃣ Scatter Plot
+✅ Code
+x = [1, 2, 3, 4]
+y = [10, 20, 15, 30]
+
+plt.scatter(x, y)
+plt.xlabel("X Axis")
+plt.ylabel("Y Axis")
+plt.title("Scatter Plot Example")
+plt.show()
+🔵 Output
+
+https://www.w3schools.com/python/img_matplotlib_scatter_colormap1.png
+
+https://matplotlib.org/stable/_images/sphx_glr_scatter_001.png
+Used for: Relationship between variables
+
+3️⃣ Bar Chart
+✅ Code
+names = ["A", "B", "C"]
+marks = [70, 85, 90]
+
+plt.bar(names, marks)
+plt.xlabel("Students")
+plt.ylabel("Marks")
+plt.title("Bar Chart Example")
+plt.show()
+📊 Output
+
+https://matplotlib.org/3.1.0/_images/sphx_glr_barchart_001.png
+
+https://pythonspot.com/wp-content/uploads/2015/07/figure_barchart.png
+Used for: Category comparison
+
+4️⃣ Histogram
+✅ Code
+data = [10, 20, 20, 30, 30, 30, 40, 50]
+
+plt.hist(data, bins=5)
+plt.xlabel("Values")
+plt.ylabel("Frequency")
+plt.title("Histogram Example")
+plt.show()
+📉 Output
+
+https://www.w3schools.com/python/img_matplotlib_histogram1.png
+
+https://media.geeksforgeeks.org/wp-content/uploads/20231205223137/Screenshot-2023-12-05-222229.png
+Used for: Data distribution
+
+5️⃣ Pie Chart
+✅ Code
+sizes = [40, 35, 25]
+labels = ["Python", "Java", "C++"]
+
+plt.pie(sizes, labels=labels, autopct="%1.1f%%")
+plt.title("Pie Chart Example")
+plt.show()
+🥧 Output
+
+https://pythonspot.com/wp-content/uploads/2015/07/matplotlib_pie.png
+
+https://matplotlib.org/stable/_images/sphx_glr_pie_and_donut_labels_002.png
+Used for: Percentage representation
+
+6️⃣ Subplots
+✅ Code
+plt.subplot(1, 2, 1)
+plt.plot([1,2,3], [3,2,1])
+plt.title("Line Chart")
+
+plt.subplot(1, 2, 2)
+plt.bar([1,2,3], [1,2,3])
+plt.title("Bar Chart")
+
+plt.show()
+🧩 Output
+
+https://matplotlib.org/stable/_images/sphx_glr_subplots_demo_002.png
+
+https://i.stack.imgur.com/1kSL5.png
+Used for: Multiple charts in one figure
+
+🧠 Quick Chart Selection
+Chart	Best Use
+Line	Trend
+Scatter	Relationship
+Bar	Comparison
+Histogram	Distribution
+Pie	Percentage
+Subplot	Multiple views
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
 
 
 ##  Contact
